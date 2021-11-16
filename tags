@@ -11,10 +11,11 @@
 !_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210905.0/
 Cryptopal-challenge	README.md	/^# Cryptopal-challenge$/;"	c
 FREQ	Python/Set_1/challenge-03.py	/^FREQ = { $/;"	v
+FREQ	Python/Set_1/challenge-04.py	/^FREQ = { $/;"	v
 char_xor	Python/Set_1/challenge-03.py	/^def char_xor(key=0,ct=0):$/;"	f
+char_xor	Python/Set_1/challenge-04.py	/^def char_xor(key=0,ct=0):$/;"	f
 hextob64	Haskell/Set_1/challenge-01.py	/^def hextob64(x, encoding1, encoding2):$/;"	f
 hextob64	Python/Set_1/challenge-01.py	/^def hextob64(x, encoding1, encoding2):$/;"	f
-hextob64	Python/Set_1/ex-3.py	/^def hextob64(x, encoding1, encoding2):$/;"	f
 hextob64	Rust/Set_1/challenge-01.py	/^def hextob64(x, encoding1, encoding2):$/;"	f
 hextobin	Haskell/Set_1/challenge-02.py	/^def hextobin(x):$/;"	f
 hextobin	Python/Set_1/challenge-02.py	/^def hextobin(x):$/;"	f
@@ -24,6 +25,6 @@ main	Haskell/Set_1/challenge-02.py	/^def main():$/;"	f
 main	Python/Set_1/challenge-01.py	/^def main():$/;"	f
 main	Python/Set_1/challenge-02.py	/^def main():$/;"	f
 main	Python/Set_1/challenge-03.py	/^def main():$/;"	f
-main	Python/Set_1/ex-3.py	/^def main():$/;"	f
+main	Python/Set_1/challenge-04.py	/^def main():$/;"	f
 main	Rust/Set_1/challenge-01.py	/^def main():$/;"	f
 main	Rust/Set_1/challenge-02.py	/^def main():$/;"	f
