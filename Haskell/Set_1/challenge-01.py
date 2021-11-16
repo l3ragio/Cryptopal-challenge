@@ -20,8 +20,7 @@ import codecs
 def hextob64(x, encoding1, encoding2):
     return codecs.encode(codecs.decode(x, encoding1), encoding2)
 
-
-if __name__ == "__main__":
+def main():
     hex_str = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d"
     b64_str = "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
 
@@ -35,3 +34,7 @@ if __name__ == "__main__":
     z = codecs.decode(hex_str,"hex") 
     z = z.decode('utf-8')
     print(f"Decoded input : {z}")
+
+
+if __name__ == "__main__":
+    main()
