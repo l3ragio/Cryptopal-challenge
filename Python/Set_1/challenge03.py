@@ -30,11 +30,31 @@ def char_xor(key=0,ct=0):
     output = ord(ct)^key
     return output
 
+def ch3(ct_list):
+    #extract the frequency score for each character in the ct and put them into a dictionary
+    ct_counter= Counter(ct_list) 
+    ct_frequencies= {}
+    for char in ct_counter:
+        ct_freq= ct_counter[char]/len(ct_counter)
+        ct_frequencies[char]=ct_freq
+
+    #get key associated to maximum value in FREQ
+    alphabet_frequentest= max(FREQ, key=FREQ.get) 
+
+    #get key associated to maximum value in FREQ
+    ct_frequentest= max(ct_frequencies, key=ct_frequencies.get)
+    #print(f'The frequentest character in the ct is          :"{ct_frequentest}"')
+
+    #get key associated to maximum value in FREQ
+    key = ord(alphabet_frequentest) ^ ord(ct_frequentest)
+    #print(f'It is likely that the encryption key is "{key}"')
+
+    return key
+
 def main():
     hex_str = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
     print(f"hex representation : {hex_str}")
 
-    #put alphabet ascii ords into a list including space
     ascii_ord = list(range(ord('a'), ord('z')+1)) + list(range(ord('A'), ord('Z')+1))
     ascii_ord.append(ord(' '))
 
@@ -45,32 +65,19 @@ def main():
         ct_char = codecs.decode(char,"hex")
         ct_char = ct_char.decode('ascii')
         ct_list.append(ct_char)
-    #    print(ord(ct_char))
+    
+    print(ct_list)
+    #put alphabet ascii ords into a list including space
 
-    #extract the frequency score for each character in the ct and put them into a dictionary
-    ct_counter= Counter(ct_list) 
-    ct_frequencies= {}
-    for char in ct_counter:
-        ct_freq= ct_counter[char]/len(ct_counter)
-        ct_frequencies[char]=ct_freq
-
-
-    #get key associated to maximum value in FREQ
-    alphabet_frequentest= max(FREQ, key=FREQ.get) 
-    print(f'The frequentest character in english texts is   :"{alphabet_frequentest}"')
-
-    #get key associated to maximum value in FREQ
-    ct_frequentest= max(ct_frequencies, key=ct_frequencies.get)
-    print(f'The frequentest character in the ct is          :"{ct_frequentest}"')
-    #get key associated to maximum value in FREQ
-    key = ord(alphabet_frequentest) ^ ord(ct_frequentest)
-    print(f'It is likely that the encryption key is "{key}"')
+    #obtain the most likely key 
+    key=ch3(ct_list)
 
     #xor every single character with the key
     most_likely_pt = [char_xor(key,item) for item in ct_list]
 
     #convert list in char and join it
     most_likely_pt = ''.join([chr(int(item)) for item in most_likely_pt])
+    
     print(f'\nIt is likely that the pt is: \n"{most_likely_pt}"')
 
 if __name__ == "__main__":
